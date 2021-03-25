@@ -1,0 +1,20 @@
+baseURL: https://vigorous-kowalevski-5b67ca.netlify.app/
+languageCode: ko
+title: quick start by EEAS
+theme: "PaperMod"
+
+markup:
+  asciidocExt:
+    attributes: {}
+    backend: html5
+    extensions: []
+    failureLevel: fatal
+    noHeaderOrFooter: true
+    preserveTOC: false
+    safeMode: unsafe
+    sectionNumbers: false
+    trace: false
+    verbose: false
+    workingFolderCurrent: false
+
+
