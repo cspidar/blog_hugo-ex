@@ -61,7 +61,7 @@ draft: false
 //이미지 경로
 
 
-화면을 녹화하여 만든 움직이는 이미지로 문서의 가독성 개선
+화면을 녹화하여 만든 움직이는 이미지로 문서의 가독성을 개선
 
 == 왜 ScreenToGif?
 
@@ -73,7 +73,7 @@ https://www.screentogif.com/
 
 
 
-.*비교 대상*
+.*비교 대상 확인*
 [%collapsible.result]
 ====
 * *CamStudio*
@@ -117,7 +117,7 @@ image::images\index-eac7d.png[]
 
 
 
-.**내가 필요로 한 + ScreenToGif에서 만족하는 기능 리스트**
+.**내가 필요로 한 + ScreenToGif에서 만족하는 기능 리스트 확인**
 [%collapsible.result]
 ====
 * 캡처 영역 설정 기능
