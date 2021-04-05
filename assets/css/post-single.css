@@ -59,7 +59,7 @@
 }
 
 .post-content h4 {
-  font-size: 16px;
+  font-size: 17.5px;
 }
 
 .post-content h5 {
@@ -200,14 +200,16 @@
   background: 0 0 !important;
 }
 
+/* 코드 블럭 */
 .post-content code {
   margin: auto 4px;
   padding: 4px 6px;
   font-family: Menlo, Monaco, "Courier New", Courier, monospace;
-  font-size: 0.78em;
+  font-size: 14px;
   line-height: 1.5;
   background: var(--code-bg);
   border-radius: 2px;
+  white-space: pre-wrap;
 }
 
 .post-content pre code {
@@ -218,7 +220,6 @@
   background: 0 0;
   border-radius: 0;
   overflow-x: auto;
-  word-break: break-all;
 }
 
 .post-content blockquote {
@@ -431,8 +432,10 @@ h6:hover .anchor {
 .paginav .next {
   margin-inline-start: auto;
   text-align: right;
+  margin-bottom: 10px;
 }
 
 [dir="rtl"] .paginav .next {
   text-align: left;
+  margin-bottom: 10px;
 }

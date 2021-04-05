@@ -1,6 +1,14 @@
 ---
 title: "움직이는 이미지 만들기 - 화면 녹화: ScreenToGif"
-date: 2021-03-23T08:51:22+09:00
+date: "2021-03-23"
+categories: 
+  - 유틸리티
+tags:
+  - 움직이는
+  - 이미지
+  - 화면 녹화
+  - ScreenToGif
+  - windows10
 draft: false
 ---
 
