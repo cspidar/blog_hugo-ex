@@ -117,7 +117,7 @@ Object.values(obj)
 [source,js]
 ----
 obj.key.toString() 
-// obj.key에 해당하는 value를 새로운 str로 반환
+// arr의 모든 item을 쉼표 구분자로 합쳐 새로운 str로 반환
 ----
 
 ==== Object.entries()

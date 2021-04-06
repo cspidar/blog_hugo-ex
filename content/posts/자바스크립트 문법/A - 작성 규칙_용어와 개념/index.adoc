@@ -75,18 +75,26 @@ draft: false
 
 === 대상 표기
 
-==== 숫자와 불리언
+==== 공통 (숫자, 불리언, 지정 문자열, 지정 값, 지정 인덱스)
 [source,js]
 ----
-n // 숫자 (0 포함 자연수)
+n // 0 포함 자연수
+-n // 음의 정수
 1/0 // 무한대 (Infinity) 
-true/false // 불리언 
+true/false // 불리언
+'a' // 지정 문자열
+a, b, c, ... // 지정 값
+target, // 지정 인덱스
+start -> end, // 차례로
+end -> start, // 역순으로
 ----
 
 ==== 문자열
 [source,js]
 ----
-str, 'a' 
+str,
+'str'[start]: 's'
+'str'[end]: 'r'
 ----
 
 ==== 배열
@@ -96,10 +104,6 @@ arr, // []
 [item1, item2, ...item]: arr[index], 
 arr[start]: item1, 
 arr[end]: ...item, 
-start -> end, // 차례로
-end -> start, // 역순으로
-target, // 지정 인덱스
-a, b, c, ... // 지정 값
 ----
 
 ==== 객체
@@ -108,7 +112,6 @@ a, b, c, ... // 지정 값
 obj, // {}
 {key1: value1, key2: value2, ...key: ...value}: obj.key,
 src // key : value 쌍
-a, b, c, ... // 지정 값
 ----
 
 ==== 함수

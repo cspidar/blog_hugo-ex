@@ -73,7 +73,7 @@ arr.pop()
 ==== Array.prototype.push()
 [source,js]
 ----
-arr.push(a1, a2, ...a)) 
+arr.push(a1, a2, ...a)
 // arr의 끝에 하나 이상의 a 추가 (원본 arr 변경), arr의 새로운 길이를 반환. (원본 변경)
 ----
 
@@ -136,17 +136,28 @@ arr.reverse()
 ----
 arr.flat(n)
 //고차 arr을 n (옵션: 기본 1) 만큼 차수 낮춤 (원본 arr 변경), 변경된 arr 반환
-///
+----
+.눌러서 예시 확인
+[%collapsible.result]
+====
+[source,js]
+----
+/// 예시
 arr.flat(1) // [1,[2]] -> [1,2] / [1,[2,[3]]] -> [1,2,[3]]
 arr.flat(2) // [1,[2,[3]]] -> [1,2,3]
-///
-///배열 구멍 제거
+----
+====
+.눌러서 활용법 확인
+[%collapsible.result]
+====
+[source,js]
+----
+/// 배열 구멍 제거
 const arr = [1, 2, , 4, 5]
 arr.flat()
 //> [1, 2, 4, 5]
-///
 ----
-
+====
 
 === 변환
 원본 배열은 유지한채 내부 요소를 변환하여 반환합니다.
@@ -203,14 +214,14 @@ console.log(arr.toString())
 [source,js]
 ----
 arr.every(p => p < 10)
-// 모든 item이 판별 함수를 만족하는 시 true, 불만족 item 발견 시 false, 빈 배열은 true 반환
+// 모든 item이 판별 함수를 만족하면 true, 불만족 item 발견 시 false, 빈 배열은 true 반환
 ----
 
 ==== Array.prototype.some()
 [source,js]
 ----
 arr.some(p => p > 10) 
-// 판별 함수를 만족하는 요소 발견 시 true, 모두 불만족하면 false 반환, 빈 배열은 false 반환
+// 판별 함수를 만족하는 item 발견 시 true, 모두 불만족하면 false 반환, 빈 배열은 false 반환
 ----
 
 ==== Array.prototype.filter()
@@ -237,15 +248,15 @@ arr.find(p => p < 10)
 ==== Array.prototype.includes()
 [source,js]
 ----
-arr.includes(item) 
-// arr의 특정 item 존재 여부 확인, 있으면 true 반환, 없으면 false 반환
+arr.includes(a) 
+// arr의 item 중 a의 존재 여부 확인, 있으면 true 반환, 없으면 false 반환
 ----
 
 ==== Array.prototype.indexOf()
 [source,js]
 ----
-arr.indexOf(item, n) 
-// arr의 특정 item 존재 여부 확인, n 번째 (옵션: 기본 1) index를 반환, 없으면 -1 반환
+arr.indexOf(a, n) 
+// arr의 item 중 a의 존재 여부 확인, n 번째 (옵션: 기본 1) index를 반환, 없으면 -1 반환
 ----
 
 .*눌러서 추가 활용 방법 확인*
@@ -294,8 +305,8 @@ arr.lastIndexOf()
 ==== Array.isArray()
 [source,js]
 ----
-Array.isArray(arr) 
-// arr이 배열인지 판별, true/false 반환
+Array.isArray(a) 
+// a가 배열인지 판별, true/false 반환
 ----
 
 === 연산
@@ -312,7 +323,7 @@ arr.forEach(p => p + 1)
 [source,js]
 ----
 arr.map(x => x + 1) 
-// arr의 item에 연산 함수를 적용, 새로운 arr 반환 
+// arr의 item에 연산 함수를 차례로 적용, 새로운 arr 반환 
 ----
 
 .*눌러서 주의사항 확인*
