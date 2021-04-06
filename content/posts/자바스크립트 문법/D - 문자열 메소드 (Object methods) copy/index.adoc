@@ -1,7 +1,7 @@
 ---
-title: "자바스크립트 문법 - C - 객체 주요 메소드 (Object methods essentials)"
+title: "자바스크립트 문법 - D - 문자열 주요 메소드 (String methods essentials)"
 
-date: "2021-04-05"
+date: "2021-04-06"
 categories: 
   - 자바스크립트 문법
 tags:
@@ -9,12 +9,12 @@ tags:
   - 문법
   - 용어
   - 개념
-  - 객체
+  - 문자열
   - 메소드
 draft: false
 ---
 
-:title: 자바스크립트 문법 - C - 객체 주요 메소드 (Object methods essentials)
+:title: 자바스크립트 문법 - D - 문자열 주요 메소드 (String methods essentials)
 
 //넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
 :sectnums:

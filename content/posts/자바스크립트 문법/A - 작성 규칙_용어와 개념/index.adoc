@@ -1,5 +1,5 @@
 ---
-title: "자바스크립트 문법 - A - 작성 규칙, 용어와 개념"
+title: "자바스크립트 문법 - A - 작성 규칙, 용어와 개념 (Style, Terms and Con"
 categories: 
   - 자바스크립트 문법
 tags:
@@ -111,7 +111,7 @@ arr[end]: ...item,
 ----
 obj, // {}
 {key1: value1, key2: value2, ...key: ...value}: obj.key,
-src // key : value 쌍
+src // key: value 
 ----
 
 ==== 함수
