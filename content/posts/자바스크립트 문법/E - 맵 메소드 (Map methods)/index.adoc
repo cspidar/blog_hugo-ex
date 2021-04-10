@@ -1,7 +1,7 @@
 ---
 title: "자바스크립트 문법 - E - 맵 주요 메소드 (Map methods essentials)"
 
-date: "2021-04-10"
+date: "2021-04-9"
 categories: 
   - 자바스크립트 문법
 tags:
