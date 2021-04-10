@@ -157,7 +157,7 @@ set[Symbol.iterator]()
 
 === 활용
 		
-==== arr <-> set 변환		
+==== arr ↔ set 변환		
 [source,js]
 ----
 /// arr -> set 변환
