@@ -1,3 +1,5 @@
+@import url("//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css");
+
 .page-header,
 .post-header {
   margin: 24px auto var(--content-gap) auto;
@@ -204,7 +206,8 @@
 .post-content code {
   margin: auto 4px;
   padding: 4px 6px;
-  font-family: Menlo, Monaco, "Courier New", Courier, monospace;
+  font-family: "D2Coding", Menlo, Monaco, "Noto Sans", "Courier New", Courier,
+    monospace;
   font-size: 14px;
   line-height: 1.5;
   background: var(--code-bg);
@@ -420,9 +423,13 @@ h6:hover .anchor {
   color: var(--secondary);
 }
 
+/* PREV PAGE, NEXT PAGE */
 .paginav .prev,
 .paginav .next {
   width: 50%;
+  font-size: 16px;
+  line-height: 1.7;
+  padding-bottom: 10px;
 }
 
 .paginav span:hover:not(.title) {
@@ -432,10 +439,8 @@ h6:hover .anchor {
 .paginav .next {
   margin-inline-start: auto;
   text-align: right;
-  margin-bottom: 10px;
 }
 
 [dir="rtl"] .paginav .next {
   text-align: left;
-  margin-bottom: 10px;
 }
