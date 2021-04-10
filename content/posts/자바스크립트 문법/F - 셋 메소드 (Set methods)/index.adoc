@@ -1,5 +1,5 @@
 ---
-title: "자바스크립트 문법 - F - 셋 주요 메소드 (Set methods essentials)"
+title: "자바스크립트 문법 - F - 셋 주요 메소드 (Set methods essential)"
 
 date: "2021-04-10"
 categories: 
