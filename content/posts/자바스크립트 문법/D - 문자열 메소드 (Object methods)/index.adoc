@@ -1,5 +1,5 @@
 ---
-title: "자바스크립트 문법 - D - 문자열 주요 메소드 (String methods essentials)"
+title: "자바스크립트 문법 - D - 문자열 주요 메소드 (String methods essential)"
 
 date: "2021-04-06"
 categories: 
