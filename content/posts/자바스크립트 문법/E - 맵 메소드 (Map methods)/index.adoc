@@ -215,7 +215,7 @@ map[Symbol.iterator]()
 
 === 활용
 
-==== obj <-> map 변환
+==== obj ↔ map 변환
 [source,js]
 ----
 /// obj -> map 변환 (Object.entries)
@@ -234,7 +234,7 @@ let obj = Object.fromEntries(map.entries());
 //> obj = { a: 1, b: 2 }	
 ----
 
-==== arr <-> map 변환
+==== arr ↔ map 변환
 [source,js]
 ----
 /// arr -> map 변환
