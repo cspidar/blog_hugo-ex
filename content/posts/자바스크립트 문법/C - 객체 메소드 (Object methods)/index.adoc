@@ -1,5 +1,5 @@
 ---
-title: "자바스크립트 문법 - C - 객체 주요 메소드 (Object methods essentials)"
+title: "자바스크립트 문법 - C - 객체 주요 메소드 (Object methods essential)"
 
 date: "2021-04-05"
 categories: 
