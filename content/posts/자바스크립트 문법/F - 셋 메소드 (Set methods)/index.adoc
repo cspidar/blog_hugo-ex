@@ -161,12 +161,12 @@ set[Symbol.iterator]()
 [source,js]
 ----
 /// arr -> set 변환
-const set = new Set(arr);"	
+const set = new Set(arr);
 ----
 [source,js]
 ----
 /// set -> arr 변환 - 1
-const arr = Array.from(set);"	
+const arr = Array.from(set);
 ----
 [source,js]
 ----
