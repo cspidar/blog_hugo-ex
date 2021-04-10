@@ -165,12 +165,12 @@ const set = new Set(arr);"
 ----
 [source,js]
 ----
-/// set -> arr 변환 <1>
+/// set -> arr 변환 - 1
 const arr = Array.from(set);"	
 ----
 [source,js]
 ----
-/// set -> arr 변환 <2> (펼침 연산자)	
+/// set -> arr 변환 - 2 (펼침 연산자)	
 [...set]
 //> [i1, i2, ...i]"	
 ----
