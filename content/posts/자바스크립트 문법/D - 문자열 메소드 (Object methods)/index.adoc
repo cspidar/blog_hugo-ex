@@ -68,7 +68,7 @@ str.slice(start, end)
 [source,js]
 ----
 str.substring(start, end)	
-//> str을 start 부터 end 전까지 (end 미포함) (옵션: 기본 str.length) 새로운 str로 반환
+//> str을 start 부터 end 전까지 (end 미포함) (옵션 - 기본: str.length) 새로운 str로 반환
 ----
 
 .*slice, substring 차이점?*
@@ -302,14 +302,14 @@ str.indexOf('s', start)
 [source,js]
 ----
 str.lastIndexOf('s', end)	
-// indexOf() 와 달리 end부터 (옵션: 기본 1/0) 역순으로 검색
+// indexOf() 와 달리 end부터 (옵션 - 기본: 1/0) 역순으로 검색
 ----
 
 ==== String.prototype.startsWith()
 [source,js]
 ----
 str.startsWith('s', n)	
-// str의 시작과 's'의 일치 여부를 n 번째 index (옵션: 기본 0) 부터 확인, true/false 반환
+// str의 시작과 's'의 일치 여부를 n 번째 index (옵션 - 기본: 0) 부터 확인, true/false 반환
 ----
 
 ==== String.prototype.search()
@@ -349,7 +349,7 @@ str.at(index)
 [source,js]
 ----
 str.at(index)	
-// str의 index (옵션: 기본 0) 에 해당하는 글자 반환
+// str의 index (옵션 - 기본: 0) 에 해당하는 글자 반환
 // at() 과 차이점: index 음수 불가
 ----
 
@@ -383,7 +383,7 @@ str.trimStart
 [source,js]
 ----
 str.charCodeAt(index)	
-// str의 index (옵션: 기본 0) 에 해당하는 글자를 UTF-16 코드로 반환	
+// str의 index (옵션 - 기본: 0) 에 해당하는 글자를 UTF-16 코드로 반환	
 ----
 
 ==== String.fromCharCode()
@@ -404,7 +404,7 @@ String.fromCharCode(189, 43, 190, 61)
 [source,js]
 ----
 str.codePointAt(index)	
-// str의 index (옵션: 기본 0) 에 해당하는 글자의 코드 포인트 값을 반환	
+// str의 index (옵션 - 기본: 0) 에 해당하는 글자의 코드 포인트 값을 반환	
 //charCodeAt() 과 차이점: 일반 문자의 경우 반환값이 동일하지만, 단일 UTF-16 코드로 표현할 수 없는 문자 (ex. 이모지) 는 다름	
 ----
 http://www.devdic.com/javascript/refer/native/method:1371/codePointAt()	

@@ -62,8 +62,8 @@ arr.shift()
 ==== Array.prototype.unshift()
 [source,js]
 ----
-arr.unshift(a) 
-// a를 arr의 첫 item으로 추가 (원본 arr 변경), 새로운 길이를 반환
+arr.unshift(i) 
+// i를 arr의 첫 item으로 추가 (원본 arr 변경), 새로운 길이를 반환
 ----
 
 ==== Array.prototype.pop()
@@ -94,14 +94,14 @@ Array.prototype.push.apply(arr, arr1)
 [source,js]
 ----
 arr.splice(start, n, a1, a2, ...a) 
-// start 부터 n개 (옵션: 기본 end 까지) item 삭제 후 그 자리에 하나 이상의 a (옵션: 기본 없음) 추가 (원본 arr 변경), 제거한 item들로 구성된 arr 반환
+// start 부터 n개 (옵션 - 기본: end 까지) item 삭제 후 그 자리에 하나 이상의 a (옵션 - 기본: 없음) 추가 (원본 arr 변경), 제거한 item들로 구성된 arr 반환
 ----
 
 ==== Array.prototype.fill()
 [source,js]
 ----
 arr.fill(a, start, end) 
-// start (옵션: 기본 0) 에서 end (옵션: 기본 arr.length) 까지 item을 a로 채움 (원본 arr 변경), 변경된 arr 반환
+// start (옵션 - 기본: 0) 에서 end (옵션 - 기본: arr.length) 까지 item을 a로 채움 (원본 arr 변경), 변경된 arr 반환
 ----
 
 
@@ -117,7 +117,7 @@ arr.sort((a , b) => a - b )
 (a, b) => a - b
 // a - b 오름차순 : 1, 2, 3, a, b, c
 // b - a 내림차순 : c, b, a, 3, 2, 1
-// (옵션: 기본 문자열 기준 유니코드) 
+// (옵션 - 기본: 문자열 기준 유니코드) 
 ----
 
 ==== Array.prototype.reverse()
@@ -131,7 +131,7 @@ arr.reverse()
 [source,js]
 ----
 arr.flat(n)
-//고차 arr을 n (옵션: 기본 1) 만큼 차수 낮춤 (원본 arr 변경), 변경된 arr 반환
+//고차 arr을 n (옵션 - 기본: 1) 만큼 차수 낮춤 (원본 arr 변경), 변경된 arr 반환
 ----
 .눌러서 예시 확인
 [%collapsible.result]
@@ -162,7 +162,7 @@ arr.flat()
 [source,js]
 ----
 arr.copyWithin(target, start, end) 
-// arr의 start (옵션: 기본 0) 에서 end (옵션: 기본 arr.length) 까지 item을 복사하여 target 부터 덮어씌움 (원본 arr 변경), 변경된 arr 반환
+// arr의 start (옵션 - 기본: 0) 에서 end (옵션 - 기본: arr.length) 까지 item을 복사하여 target 부터 덮어씌움 (원본 arr 변경), 변경된 arr 반환
 ----
 ====
 
@@ -190,14 +190,14 @@ arr.join('a')
 ----
 /// 문자열 분할
 str.split('a', n)
-// str을 'a' 구분자 (옵션: 기본 구분자 없음) 로 n 개 (옵션: 기본 str.length) 까지 분할해 새로운 arr로 반환
+// str을 'a' 구분자 (옵션 - 기본: 구분자 없음) 로 n 개 (옵션 - 기본: str.length) 까지 분할해 새로운 arr로 반환
 ----
 
 ==== Array.prototype.slice()
 [source,js]
 ----
 arr.slice(start, end) 
-// start부터 end (옵션: 기본 arr.length) 전까지 (end 미포함) item을 새로운 arr로 반환
+// start부터 end (옵션 - 기본: arr.length) 전까지 (end 미포함) item을 새로운 arr로 반환
 ----
 
 ==== Array.prototype.toString()
@@ -267,7 +267,7 @@ arr.includes(a)
 [source,js]
 ----
 arr.indexOf(a, n) 
-// arr의 item 중 a의 존재 여부 확인, n 번째 (옵션: 기본 1) index를 반환, 없으면 -1 반환
+// arr의 item 중 a의 존재 여부 확인, n 번째 (옵션 - 기본: 1) index를 반환, 없으면 -1 반환
 ----
 
 .*눌러서 추가 활용 방법 확인*
@@ -377,7 +377,7 @@ arr.reduce((acc, cur, inx, src) => acc + cur, int)
 ----
 [source,js]
 ----
-/// 리듀서 (reducer) 함수: int (옵션: 기본 0) 를 초기값으로 시작, arr의 각 item이 차례로 cur에 대입되어 연산 함수를 적용한 뒤 acc에 누적 저장하여 반환
+/// 리듀서 (reducer) 함수: int (옵션 - 기본: 0) 를 초기값으로 시작, arr의 각 item이 차례로 cur에 대입되어 연산 함수를 적용한 뒤 acc에 누적 저장하여 반환
 // acc: accumulator, cur: currentValue, idx: currentIndex, src: sourceArray, int: initialValue
 ----
 .*눌러서 주의사항 확인*
@@ -407,7 +407,7 @@ arr.reduceRight((acc, cur, inx, src) => acc + cur, int)
 [source,js]
 ----
 Array.from(H, p => p + 1) 
-// H ('a', arr, array-like, iterable, (p1, p2, ...p)) 를 각 item에 연산 함수 (옵션: 기본 p => p) 적용, 새로운 arr 반환
+// H ('a', arr, array-like, iterable, (p1, p2, ...p)) 를 각 item에 연산 함수 (옵션 - 기본: p => p) 적용, 새로운 arr 반환
 ----
 
 

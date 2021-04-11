@@ -43,7 +43,7 @@
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-  margin: 24px 0 16px;
+  margin: 24px 0 10px;
 }
 
 .post-content h1 {
@@ -65,7 +65,7 @@
 }
 
 .post-content h5 {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .post-content h6 {
@@ -140,13 +140,13 @@
   table:not(.highlighttable, .highlight table, .gist .highlight)
   td {
   min-width: 80px;
-  padding: 12px 8px;
+  padding: 2px 12px;
   line-height: 1.5;
   border-bottom: 1px solid var(--border);
 }
 
 .post-content table th {
-  font-size: 12px;
+  font-size: 14px;
   text-align: start;
 }
 
@@ -227,7 +227,7 @@
 
 .post-content blockquote {
   margin: 20px 0;
-  padding: 0 14px;
+  padding: 0px 14px;
   border-inline-start: 3px solid var(--primary);
 }
 
@@ -245,7 +245,8 @@
 
 .post-content img {
   border-radius: 4px;
-  margin-top: 1px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .post-content img[src*="#center"] {
@@ -265,7 +266,7 @@
 
 .post-content figure > figcaption > p {
   color: var(--secondary);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
 }
 
@@ -443,4 +444,15 @@ h6:hover .anchor {
 
 [dir="rtl"] .paginav .next {
   text-align: left;
+}
+
+/* 더보기 접힘항목 간격 */
+summary.title {
+  margin-bottom: 10px;
+}
+
+/* 테이블 위아래 마진 */
+.paragraph p {
+  margin-top: 4px;
+  margin-bottom: 4px;
 }

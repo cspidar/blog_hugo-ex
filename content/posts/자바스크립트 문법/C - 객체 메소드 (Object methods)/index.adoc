@@ -274,7 +274,7 @@ Object.defineProperties(obj, {
   },
   key3: {}
 });
-// obj에 1개 이상의 src와 그 속성 (옵션: 기본 key1의 작성값) 을 정의
+// obj에 1개 이상의 src와 그 속성 (옵션 - 기본: key1의 작성값) 을 정의
 ----
 
 ==== Object.defineProperty()
@@ -288,7 +288,7 @@ Object.defineProperty(obj, 'key', {
   get: undefined,
   set: undefined
 })
-// obj에 단일 src와 그 속성 (옵션: 기본 key1의 작성값) 을 정의
+// obj에 단일 src와 그 속성 (옵션 - 기본: key1의 작성값) 을 정의
 ----
 
 ==== Object.getOwnPropertyDescriptor() 
