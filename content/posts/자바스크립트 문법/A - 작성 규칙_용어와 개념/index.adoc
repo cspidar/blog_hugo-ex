@@ -76,7 +76,7 @@ arr.unshift(i)
 [cols="a, a", options="header, autowidth",frame=topbot]
 |===
 |일반 지칭 |특정 값
-|*배열 (Array)* |*arr*
+|* *배열 (Array)* |* *arr*
 |
 [source,js]
 ----
@@ -110,7 +110,7 @@ target: 특정 인덱스
 |인덱스 (Index), 요소 (Item) 쌍	
 |src
 
-|*객체 (Object)*	|*obj*
+|* *객체 (Object)*	|* *obj*
 |
 [source,js]
 ----
@@ -181,7 +181,7 @@ target: 특정 인덱스
 |인덱스 (Index), 문자 (String) 쌍	
 |src
 
-|*맵 (Map)*	|*map*
+|* *맵 (Map)*	|* *map*
 |
 [source,js]
 ----
@@ -210,7 +210,7 @@ map.get(k) // v
 |키 (Key), 값 (Value) 쌍	
 |src
 	
-|*셋 (Set)*	|*set*
+|* *셋 (Set)*	|* *set*
 |
 [source,js]
 ----
@@ -226,7 +226,7 @@ map.get(k) // v
 ...i: 마지막 요소
 i: 특정 요소
 	
-|*함수 (Function)*	|*func*
+|* *함수 (Function)*	|* *func*
 |
 [source,js]
 ----
@@ -243,7 +243,7 @@ i: 특정 요소
 ...p: 마지막 인자
 p: 특정 인자
 	
-|*복합 요소 (Hybrid)*	|*H*
+|* *복합 요소 (Hybrid)*	|* *H*
 |
 [source,js]
 ----
@@ -258,7 +258,7 @@ H[arr, obj, str, map, set, func]
 |hybrid: 여러 형태가 가능한 대상	
 |H[가능 대상 목록]
 
-|*일반 요소* | 
+|* *일반 요소* | 
 |0 포함 자연수 |n
 |음의 정수 |-n
 |무한대	|1/0

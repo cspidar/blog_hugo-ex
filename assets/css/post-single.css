@@ -456,3 +456,13 @@ summary.title {
   margin-top: 4px;
   margin-bottom: 4px;
 }
+
+tbody .content ul {
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+.post-content thead tr th {
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
