@@ -110,10 +110,12 @@ func.call(p_this, p1, p2, ...p)
 [%collapsible.result]
 ====
 * *AggregateError*
++
 [source,js]
 ----
 // 다수의 에러가 한 에러로 랩핑되어야 할 때의 오류를 나타냅니다.
 ----
++
 [source,js]
 ----
 /// 예시
