@@ -39,7 +39,7 @@ draft: false
 
 == Function
 
-=== 특징
+=== 주의사항
 this 키워드는 함수 내에서 현재 실행 중인 함수를 참조하지 않으므로 이름으로 Function 객체를 직접 참조해야 함 (bind() 메서드 활용 이유)
 
 
@@ -134,11 +134,11 @@ console.log(e.errors);
 ----
 ====
 
-=== 활용
+== 활용
 
-==== getter
+=== getter
 
-==== setter
+=== setter
 
 
 

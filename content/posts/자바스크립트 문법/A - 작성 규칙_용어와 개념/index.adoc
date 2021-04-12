@@ -33,9 +33,9 @@ draft: false
 
 = {title}
 
-* 표기법을 문자화, 단순화시켜 실제 사용되는 형태로 표현했습니다. 그 과정에서 다소 생략, 또는 비약이 있을 수 있습니다.
+* 표기법을 단순화시켜 실제 사용되는 형태로 표현했습니다. 그 과정에서 다소 생략 또는 비약이 있을 수 있습니다.
 * 반환값, 기존 대상의 변경 여부, 항목의 생략 가능 여부 (+생략했을때 기본값) 을 명확히 하는데 중점을 뒀습니다.
-* 학습 과정중, 정리를 위해 작성하여 오류가 있을 수 있습니다. 이에 대해 제 스스로 알게되거나, 관련 내용을 전달해 주신다면 업데이트 하도록 하겠습니다. 
+* 학습 과정중, 정리를 위해 작성하여 오류가 있을 수 있습니다. 이에 대해 제 스스로 알게되거나, 관련 내용을 전달해 주시면 업데이트 하도록 하겠습니다. 
 * 오류 수정 외에도 관련 예시와 활용법 추가는 지속적으로 진행할 예정입니다.
 * 본 문서의 첫번째 작성 목적은 제 학습에 대한 정리와 리마인드를 용이하게 하려는 것이나,
 자바스크립트 학습을 시작하시는 분들에게는 파악이 필요한 대상의 요약본이, 숙련자분들에게는 리마인드에 도움이 되는 도구가 되었으면 하는 바램입니다.
@@ -75,7 +75,7 @@ arr.unshift(i)
 
 [cols="a, a", options="header, autowidth",frame=topbot]
 |===
-|일반 지칭 |특정 값
+|*일반 지칭* |*특정 값*
 |* *배열 (Array)* |* *arr*
 |
 [source,js]
@@ -138,7 +138,7 @@ obj.k1 // v1
 |키 (Key), 값 (Value) 쌍
 |src
 	
-|*문자열 (String)*	|*str*
+|* *문자열 (String)*	|* *str*
 |
 [source,js]
 ----
@@ -253,6 +253,7 @@ hybrid.method()
 [source,js]
 ----
 H.method()
+[h1, h2, ... h]
 H[arr, obj, str, map, set, func]
 ----
 |hybrid: 여러 형태가 가능한 대상	
@@ -266,6 +267,8 @@ H[arr, obj, str, map, set, func]
 |차례로	  |start -> end
 |역순으로	|end -> start
 |생략 가능한 항목의 기본값 0	|옵션 - 기본: 0
+|JS | JavaScript
+|코드 테이블 내 반환값, 결과값 |//>
 |===
 
 
@@ -278,6 +281,22 @@ H[arr, obj, str, map, set, func]
 
 
 == 용어와 개념
+
+=== Index와 False
+JS에서 0 은 false로 평가되기 때문에, 요소 검색 후 인덱스를 반환하는 아래와 같은 메소드를 사용할때 주의해야 합니다.
+
+* link:../b-배열-메소드-array-methods/#_array_prototype_findindex[arr.findIndexOf()]
+* link:../b-배열-메소드-array-methods/#_array_prototype_indexof[arr.indexOf()]
+* link:../b-배열-메소드-array-methods/#_array_prototype_lastindexof[arr.lastIndexOf()]
+
+true/false 반환값이 필요한 경우엔 link:../b-배열-메소드-array-methods/#_array_prototype_includes[arr.includes()] 메소드를 사용하는 것이 나은 선택일 수 있습니다.
+
+=== 콜백 함수
+다른 함수의 인자로 전달되는 함수 (함수안에 인자로 호출된 함수) 를 말합니다. 본 문서에서는 콜백 함수를 그 역할에 따라 연산 함수 (p => p + 1, 대상을 인자로 받아 계산 또는 효과를 적용하여 결과를 반환) 와 판별 함수 (p => p < 10, 대상의 특정 조건 만족 여부를 true/false로 반환) 로 구분하여 작성했습니다.
+
+=== 유사 배열 (Array-like)
+배열의 형태 [i1, i2, ...i] 를 하고 있지만, 특정 목적으로 만들어져 배열 메소드를 사용할수 없습니다. (length 프로퍼티는 존재) 함수에서 배열 형태를 반환하고 싶거나 원래의 배열 객체가 갖고 있는 메소드를 제한하거나 또는 추가하고 싶을때 사용합니다.
+출처: https://sub0709.tistory.com/13
 
 === 얕게 복사
 
