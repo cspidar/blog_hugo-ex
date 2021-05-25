@@ -155,7 +155,7 @@ set[Symbol.iterator]()
 ====
 
 
-=== 활용
+== 활용
 		
 === arr ↔ set 변환		
 [source,js]
@@ -175,7 +175,7 @@ const arr = Array.from(set);
 //> [i1, i2, ...i]"	
 ----
 
-==== arr 중복 제거
+=== arr 중복 제거
 [source,js]
 ----
 // arr -> set -> arr2
@@ -184,7 +184,7 @@ const arr2 = [...new Set(arr)]
 //> [1, 2]
 ----
 
-==== 집합 연산		
+=== 집합 연산		
 [source,js]
 ----
 let setA = new Set([1, 2, 3, 4, 5])

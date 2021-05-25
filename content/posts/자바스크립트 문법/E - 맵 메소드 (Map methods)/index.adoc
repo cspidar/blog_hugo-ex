@@ -99,6 +99,8 @@ map.get(key)
 ----
 
 
+
+
 == Map 프로퍼티
 
 === Map.prototype.size
@@ -108,6 +110,8 @@ map.size
 // map의 src 갯수 반환	
 // map.length 는 값이 0인 속성	
 ----
+
+
 
 == Map 메소드
 
@@ -126,6 +130,9 @@ map.clear()
 map.delete(key)		
 // map의 key 관련 src를 제거, 제거 여부 true/false 반환	
 ----
+
+
+
 
 === 확인 & 검색
 
@@ -149,6 +156,9 @@ map.set(k1, v1).set(k2, v2).set(...k, ...v)
 map.has(key)		
 // key의 존재 여부 확인, true/false 반환	
 ----
+
+
+
 
 === 관련 요소 반환
 
@@ -182,6 +192,9 @@ map.entries()
 // map의 src 배열을 차례로 제공하는 iterator 반환	
 ----
 
+
+
+
 === 기타
 
 .*눌러서 확인*
@@ -213,9 +226,9 @@ map[Symbol.iterator]()
 ----
 ====
 
-=== 활용
+== 활용
 
-==== obj ↔ map 변환
+=== obj ↔ map 변환
 [source,js]
 ----
 /// obj -> map 변환 (Object.entries)
@@ -234,7 +247,7 @@ let obj = Object.fromEntries(map.entries());
 //> obj = { a: 1, b: 2 }	
 ----
 
-==== arr ↔ map 변환
+=== arr ↔ map 변환
 [source,js]
 ----
 /// arr -> map 변환
