@@ -1,5 +1,5 @@
 ---
-title: "자바스크립트 문법 - G - 함수 주요 메소드 (Function methods essentials)"
+title: "자바스크립트 문법 - G - 함수 주요 메소드 (Function methods essential)"
 
 date: "2021-04-10"
 categories: 
