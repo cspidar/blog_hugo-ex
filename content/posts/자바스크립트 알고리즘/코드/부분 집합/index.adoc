@@ -1,0 +1,95 @@
+---
+title: "자바스크립트 알고리즘 - 코드 - 부분 집합"
+date: "2021-05-31"
+categories: 
+  - 자바스크립트 알고리즘
+tags:
+  - 자바스크립트
+  - 알고리즘
+  - 코드
+  - 부분 집합
+  - Subset
+draft: false
+---
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//:doctype: book
+//Hugo 지원 안함
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+
+//:subtitle: 사용자 매뉴얼
+
+// :media: prepress
+//페이지 recto/verso 여백 설정
+
+:icons: font
+// :icons: image
+// :icontype: svg
+
+:xrefstyle: full
+:chapter-refsig:
+:section-refsig:
+:appendix-refsig:
+//상호참조 넘버링, chapter, section, appendix 이름 설정, 커스텀 네이밍 아직 지원 안됨 (예정)
+
+:table-caption!:
+:table-number!:
+//테이블 타이틀 앞 글자 + 숫자 (Table 1.) 없애기
+:experimental:
+//실험 기능 확장
+:example-caption!:
+:example-number!:
+//==== block 앞 글자(example) + 숫자 (1.) 없애기
+:figure-caption!:
+
+:imagesdir:
+//이미지 경로
+
+:source-highlighter: highlightjs
+
+== 부분 집합
+* 원소를 넣을지 말지 2갈래로 탐색
+* arr 의 모든 부분 집합 res 에 추가, 갯수 cnt에 출력
+
+[source,js]
+----
+function partsOfarr(arr) {
+  let ch = Array.from(Array(arr.length));
+  let res = [];
+  // let cnt = 0;
+  function DFS(i) {
+    if (i === arr.length) {
+      let tmp = []; // for문 전 초기화
+      for (i in ch) {
+        // 체크배열이 1인 v만 tmp에 추가
+        if (ch[i] === 1) {
+          tmp.push(arr[i]);
+        }
+      }
+      res.push(tmp);
+      // cnt++;
+    } else {
+      ch[i] = 1;
+      DFS(i + 1);
+      ch[i] = 0;
+      DFS(i + 1);
+    }
+  }
+  DFS(0);
+  // return cnt;
+  return res;
+}
+----
