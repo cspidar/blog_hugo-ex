@@ -1,0 +1,109 @@
+---
+title: "자바스크립트 알고리즘 - 코드 - Map 활용"
+date: "2021-06-17"
+categories: 
+  - 자바스크립트 알고리즘
+tags:
+  - 자바스크립트
+  - 알고리즘
+  - 코드
+  - Map
+  - 맵
+draft: false
+---
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//:doctype: book
+//Hugo 지원 안함
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+
+//:subtitle: 사용자 매뉴얼
+
+// :media: prepress
+//페이지 recto/verso 여백 설정
+
+:icons: font
+// :icons: image
+// :icontype: svg
+
+:xrefstyle: full
+:chapter-refsig:
+:section-refsig:
+:appendix-refsig:
+//상호참조 넘버링, chapter, section, appendix 이름 설정, 커스텀 네이밍 아직 지원 안됨 (예정)
+
+:table-caption!:
+:table-number!:
+//테이블 타이틀 앞 글자 + 숫자 (Table 1.) 없애기
+:experimental:
+//실험 기능 확장
+:example-caption!:
+:example-number!:
+//==== block 앞 글자(example) + 숫자 (1.) 없애기
+:figure-caption!:
+
+:imagesdir:
+//이미지 경로
+
+:source-highlighter: highlightjs
+
+
+
+== arr -> map 변환
+[source,js]
+----
+const map = new Map([
+  [k1, v1],
+  [k2, v2],
+  [...k, ...v],
+]);
+----
+
+== map ->> arr 변환 (펼침 연산자)
+[source,js]
+----
+let arr = [...map];
+----
+
+== value 업데이트
+[source,js]
+----
+map.set(k, map.get(k) + 1);
+----
+
+== 순회
+[source,js]
+----
+for ([key, value] of map) {
+}
+----
+
+== Function - 두 Map 일치 확인
+[source,js]
+----
+function chkMaps(p1, p2) {
+  // console.log(p1);
+  if (p1.size != p2.size) return false;
+  else {
+    for ([k, v] of p1) {
+      if (!p2.has(k) || p2.get(k) !== v) return false; // p2에 p1의 k가 있는지 확인 || p2의 v가 p1의 v와 같은지 확인
+    }
+    return true;
+  }
+}
+----
+
+
