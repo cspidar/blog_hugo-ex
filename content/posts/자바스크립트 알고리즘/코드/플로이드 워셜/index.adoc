@@ -1,0 +1,125 @@
+---
+title: "자바스크립트 알고리즘 - 코드 - 플로이드-워셜"
+date: "2021-06-24"
+categories: 
+  - 자바스크립트 알고리즘
+tags:
+  - 자바스크립트
+  - 알고리즘
+  - 코드
+  - 플로이드-워셜
+  - Floyd-Warshall
+  - 점화식
+  - Recurrence
+  - 동적 프로그래밍
+  - Dynamic Programming
+draft: false
+---
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//:doctype: book
+//Hugo 지원 안함
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+
+//:subtitle: 사용자 매뉴얼
+
+// :media: prepress
+//페이지 recto/verso 여백 설정
+
+:icons: font
+// :icons: image
+// :icontype: svg
+
+:xrefstyle: full
+:chapter-refsig:
+:section-refsig:
+:appendix-refsig:
+//상호참조 넘버링, chapter, section, appendix 이름 설정, 커스텀 네이밍 아직 지원 안됨 (예정)
+
+:table-caption!:
+:table-number!:
+//테이블 타이틀 앞 글자 + 숫자 (Table 1.) 없애기
+:experimental:
+//실험 기능 확장
+:example-caption!:
+:example-number!:
+//==== block 앞 글자(example) + 숫자 (1.) 없애기
+:figure-caption!:
+
+:imagesdir:
+//이미지 경로
+
+:source-highlighter: highlightjs
+
+
+== 플로이드-워셜
+
+* 전체 노드간 소요 시간을 graph 배열에 업데이트
+* graph: 노드 정보 배열 (2차, 초기화: 1e9 ≒ 무한)
+* 점화식: min(a -> b, a -> k -> b)
+
+
+[source, JS]
+----
+function solution(p1, p2, p3) {
+
+  const nodes = Number(p1);
+  const arr = [...p2];
+
+  const graph = Array.from(Array(nodes + 1), () => Array(nodes + 1).fill(1e9));
+
+  // graph 자기 자신 거리 = 0
+  for (i in graph) {
+    graph[i][i] = 0;
+  }
+
+  // graph 에 node 정보 입력
+  // [출발 노드, 도착 노드, 거리]
+  for (v of arr) {
+    graph[v[0]][v[1]] = v[2];
+  }
+
+  // 점화식 적용
+  // min(a -> b, a -> k -> b)
+  for (k = 1; k <= nodes; k++) {
+    for (a = 1; a <= nodes; a++) {
+      for (b = 1; b <= nodes; b++) {
+        graph[a][b] = Math.min(graph[a][b], graph[a][k] + graph[k][b]);
+      }
+    }
+  }
+
+  console.table(graph);
+
+  return;
+}
+
+const in1 = 4; // 노드 수
+const in2 = [ // [출발 노드, 도착 노드, 소요 시간]
+  [1, 2, 4],
+  [1, 4, 6],
+  [2, 1, 3],
+  [2, 3, 7],
+  [3, 1, 5],
+  [3, 4, 4],
+  [4, 3, 2],
+];
+const in3 = 0;
+const in4 = 0;
+const in5 = 0;
+
+console.log(solution(in1, in2, in3, in4, in5));
+----

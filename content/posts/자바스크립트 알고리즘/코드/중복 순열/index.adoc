@@ -1,0 +1,62 @@
+---
+title: "자바스크립트 알고리즘 - 코드 - 중복 순열"
+date: "2021-05-04"
+categories: 
+  - 자바스크립트 알고리즘
+tags:
+  - 자바스크립트
+  - 알고리즘
+  - 코드
+  - 중복 순열
+  - Permutation with repetition
+  - n PI r
+draft: false
+---
+
+:sectnums:
+:hardbreaks:
+:chapter-label:
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+:icons: font
+:xrefstyle: full
+:chapter-refsig:
+:section-refsig:
+:appendix-refsig:
+:table-caption!:
+:table-number!:
+:experimental:
+:example-caption!:
+:example-number!:
+:figure-caption!:
+:imagesdir:
+:source-highlighter: highlightjs
+
+== 중복 순열
+* arr 에서 중복을 허락하여 r 개 뽑아 res 에 추가
+* cnt에 갯수 출력
+
+[source,js]
+----
+function arrPir(arr, r) {
+  let res = [];
+  let tmp = [];
+  // let cnt = 0;
+  function DFS(L) {
+    if (L === r) {
+      res.push(tmp.slice());
+      // cnt++;
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        // L차 순회하며 각 자리에 v 입력
+        tmp[L] = arr[i];
+        DFS(L + 1);
+      }
+    }
+  }
+  DFS(0);
+  // return cnt;
+  return res;
+}
+----

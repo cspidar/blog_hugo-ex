@@ -1,5 +1,5 @@
 ---
-title: "자바스크립트 알고리즘 - 코드 - 부분 집합"
+title: "자바스크립트 알고리즘 - 코드 - 순열"
 date: "2021-05-01"
 categories: 
   - 자바스크립트 알고리즘
@@ -7,8 +7,9 @@ tags:
   - 자바스크립트
   - 알고리즘
   - 코드
-  - 부분 집합
-  - Subset
+  - 순열
+  - Permutation
+  - n!
 draft: false
 ---
 
@@ -60,36 +61,34 @@ draft: false
 
 :source-highlighter: highlightjs
 
-== 부분 집합
-* 원소를 넣을지 말지 2갈래로 탐색
-* arr 의 모든 부분 집합 res 에 추가, 갯수 cnt에 출력
+== 순열
+* arr을 (arr.length - 2) 개 뽑는 모든 순열 res 에 추가
+* cnt 에 갯수 출력
 
 [source,js]
 ----
-function partsOfarr(arr) {
-  let ch = Array.from(Array(arr.length));
+function arrPr(arr, r) {
   let res = [];
+  let tmp = [];
   // let cnt = 0;
-  function DFS(i) {
-    if (i === arr.length) {
-      let tmp = []; // for문 전 초기화
-      for (i in ch) {
-        // 체크배열이 1인 v만 tmp에 추가
-        if (ch[i] === 1) {
-          tmp.push(arr[i]);
-        }
-      }
-      res.push(tmp);
+  let ch = Array.from(Array(arr.length + 1), () => 0);
+  function DFS(L) {
+    if (L === arr.length) {
+      res.push(tmp.join(''));
       // cnt++;
     } else {
-      ch[i] = 1;
-      DFS(i + 1);
-      ch[i] = 0;
-      DFS(i + 1);
+      for (let i = 0; i < arr.length; i++) {
+        if (ch[i] === 0) {
+          tmp[L] = arr[i];
+          ch[i] = 1;
+          DFS(L + 1);
+          ch[i] = 0;
+        }
+      }
     }
   }
-  DFS(0);
-  // return cnt;
+  DFS(arr.length - r);
   return res;
+  // return cnt;
 }
 ----

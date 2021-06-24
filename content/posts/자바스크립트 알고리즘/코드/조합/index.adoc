@@ -1,0 +1,63 @@
+---
+title: "자바스크립트 알고리즘 - 코드 - 조합"
+date: "2021-05-04"
+categories: 
+  - 자바스크립트 알고리즘
+tags:
+  - 자바스크립트
+  - 알고리즘
+  - 코드
+  - 조합
+  - Combination
+  - n C r
+draft: false
+---
+
+:sectnums:
+:hardbreaks:
+:chapter-label:
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+:icons: font
+:xrefstyle: full
+:chapter-refsig:
+:section-refsig:
+:appendix-refsig:
+:table-caption!:
+:table-number!:
+:experimental:
+:example-caption!:
+:example-number!:
+:figure-caption!:
+:imagesdir:
+:source-highlighter: highlightjs
+
+== 조합
+
+* arr을 r 개 뽑는 모든 조합 res에 추가
+* cnt 에 갯수 출력
+
+[source,js]
+----
+function combi(arr, r) {
+  let res = [];
+  let tmp = Array.from({ length: r }, () => 0);
+  // let cnt = 0;
+  function DFS(L, s) {
+    if (L === r) {
+      res.push(tmp.slice());
+      // cnt++;
+    } else {
+      for (let i = s; i < arr.length; i++) {
+        // s 부터 도는게 포인트
+        tmp[L] = arr[i];
+        DFS(L + 1, i + 1); // 다음 s 를 i + 1 로 세팅
+      }
+    }
+  }
+  DFS(0, 0);
+  // return cnt;
+  return res;
+}
+----
