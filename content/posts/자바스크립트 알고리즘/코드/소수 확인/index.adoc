@@ -1,0 +1,84 @@
+---
+title: "자바스크립트 알고리즘 - 코드 - 소수 확인"
+date: "2021-05-27"
+categories: 
+  - 자바스크립트 알고리즘
+tags:
+  - 자바스크립트
+  - 알고리즘
+  - 코드
+  - 소수 확인
+  - Prime number
+draft: false
+---
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//:doctype: book
+//Hugo 지원 안함
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+
+//:subtitle: 사용자 매뉴얼
+
+// :media: prepress
+//페이지 recto/verso 여백 설정
+
+:icons: font
+// :icons: image
+// :icontype: svg
+
+:xrefstyle: full
+:chapter-refsig:
+:section-refsig:
+:appendix-refsig:
+//상호참조 넘버링, chapter, section, appendix 이름 설정, 커스텀 네이밍 아직 지원 안됨 (예정)
+
+:table-caption!:
+:table-number!:
+//테이블 타이틀 앞 글자 + 숫자 (Table 1.) 없애기
+:experimental:
+//실험 기능 확장
+:example-caption!:
+:example-number!:
+//==== block 앞 글자(example) + 숫자 (1.) 없애기
+:figure-caption!:
+
+:imagesdir:
+//이미지 경로
+
+:source-highlighter: highlightjs
+
+
+
+== 소수 확인
+
+* n을 n의 제곱근 (Math.sqrt(n)) 까지 나눈 나머지가 0이 존재하면 안됨
+
+* n이 소수면 true, 아니면 false 반환
+
+[source,js]
+----
+const chkPrime = (n) => {
+  if (n === 0) return false;
+  if (n === 1) return false;
+  else if (n === 2) return true;
+  else {
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) return false;
+    }
+    return true;
+  }
+};
+----
