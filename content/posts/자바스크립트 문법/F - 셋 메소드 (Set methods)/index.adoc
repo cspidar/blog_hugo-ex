@@ -1,0 +1,236 @@
+---
+title: "자바스크립트 문법 - F - 셋 주요 메소드 (Set methods essential)"
+
+date: "2021-04-09"
+categories: 
+  - 자바스크립트 문법
+tags:
+  - 자바스크립트
+  - 문법
+  - 용어
+  - 개념
+  - 메소드
+  - 셋
+  - Set
+draft: false
+---
+
+:title: Title
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+= {title}
+
+본 문서의 작성 규칙은 link:../a-작성-규칙_용어와-개념/#_작성_규칙[자바스크립트 문법 작성 규칙] 을 참고하세요.
+활용 빈도와 중요도가 높다고 생각되는 항목으로 본문을 구성하였습니다.
+나머지 항목은 <<#_기타, 기타>> 챕터에서 확인 가능합니다.
+
+
+== Set
+
+=== 특징
+* 유일한 값을 저장, 객체와 원시 값 모두 저장 가능
+* index 없음
+* item 순서에 의미 없음
+* 개별 item에 접근 불가
+
+=== 기본 문법
+
+==== 선언
+[source,js]
+----
+const set = new Set()
+----
+
+
+== Set 프로퍼티
+
+=== Set.prototype.size
+[source,js]
+----
+set.size
+// set의 item 갯수 반환	
+// set.length 는 값이 0인 속성	
+----
+
+		
+== Set 메소드
+
+=== 직접 수정
+
+==== Set.prototype.add()
+[source,js]
+----
+set.add(a1).add(a2).add(...a)		
+// set의 뒤에 하나 이상의 item을 추가, 수정된 set 반환	직접 수정
+----
+
+==== Set.prototype.clear()
+[source,js]
+----
+set.clear()
+// set의 모든 item을 제거 (원본 set 변경), undefined 반환	직접 수정
+----
+
+=== 확인 & 검색
+
+==== Set.prototype.delete()
+[source,js]
+----
+set.delete(i)		
+// set의 i를 제거, 제거 여부 true/false 반환
+----
+
+==== Set.prototype.has()
+[source,js]
+----
+set.has(i)		
+// i의 존재 여부 확인, true/false 반환	확인
+----
+
+=== 관련 요소 반환
+
+==== Set.prototype.forEach()
+[source,js]
+----
+set.forEach((p) => p + 1)		
+// set의 item에 차례로 연산 함수 적용, 중간 탈출 불가, undefine 반환	변환
+----
+
+==== Set.prototype.keys()
+[source,js]
+----
+set.keys()
+// set의 item을 차례로 제공하는 새로운 iterator 반환	관련
+----
+
+==== Set.prototype.values()
+[source,js]
+----
+set.values()
+// set의 item을 차례로 제공하는 새로운 iterator 반환	관련
+----
+
+==== Set.prototype.entries()
+[source,js]
+----
+set.entries()
+// set의 [item, item] 형태의 arr을 차례로 제공하는 iterator 반환	관련 요소
+// Map과 호환을 위한 기능	
+----
+
+
+=== 기타		
+.*눌러서 확인*
+[%collapsible.result]
+====
+* *get Set[@@species]*
++
+[source,js]
+----
+Set[Symbol.species]		
+// 값이 0인 속성, item 수는 Set.prototype.size로 확인 가능	
+----
+
+* *Set.prototype[@@iterator]()*
++
+[source,js]
+----
+set[Symbol.iterator]()		
+// set의 item을 차례로 제공하는 iterator 반환	관련 요소
+// values() 와 같음	
+----
+====
+
+
+== 활용
+		
+=== arr ↔ set 변환		
+[source,js]
+----
+/// arr -> set 변환
+const set = new Set(arr);
+----
+[source,js]
+----
+/// set -> arr 변환 - 1
+const arr = Array.from(set);
+----
+[source,js]
+----
+/// set -> arr 변환 - 2 (펼침 연산자)	
+[...set]
+//> [i1, i2, ...i]"	
+----
+
+=== arr 중복 제거
+[source,js]
+----
+// arr -> set -> arr2
+const arr = [1, 1, 2]
+const arr2 = [...new Set(arr)]
+//> [1, 2]
+----
+
+=== 집합 연산		
+[source,js]
+----
+let setA = new Set([1, 2, 3, 4, 5])
+let setB = new Set([4, 5, 6, 7, 8])
+----
+[source,js]
+----
+/// 합집합
+let uSet = new Set([...setA, ...setB])
+for (let value of uSet) { console.log(value); }
+//> 1, 2, 3, 4, 5, 6, 7, 8
+----
+[source,js]
+----
+/// 교집합
+let iSet = new Set([...setA].filter(v => setB.has(v)));
+for (let value of iSet) { console.log(value) }
+//> 4, 5
+----
+[source,js]
+----	
+/// 차집합
+let dSet = new Set([...setA].filter(v => !setB.has(v)));
+for (let value of dSet) { console.log(value) }
+//> 1, 2, 3
+----
+[source,js]
+----	
+/// 여집합
+var setA = new Set([1, 2, 3, 4, 5]);
+var setB = new Set([3, 4, 5, 6, 7]);
+var sdSet = new Set(
+[...[...set1].filter(x => !setB.has(x)), ...[...setB].filter(x => !setA.has(x))]
+)
+for (let value of sdSet) { console.log(value) }
+//> 1, 2, 6, 7
+----
+
+
+
+		
+
+
+
+
+
+
+
+

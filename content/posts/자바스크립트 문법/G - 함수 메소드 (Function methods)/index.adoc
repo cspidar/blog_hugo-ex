@@ -1,0 +1,151 @@
+---
+title: "자바스크립트 문법 - G - 함수 주요 메소드 (Function methods essential)"
+
+date: "2021-04-10"
+categories: 
+  - 자바스크립트 문법
+tags:
+  - 자바스크립트
+  - 문법
+  - 용어
+  - 개념
+  - 메소드
+  - 함수
+  - Function
+draft: false
+---
+
+:title: Title
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+= {title}
+
+본 문서의 작성 규칙은 link:../a-작성-규칙_용어와-개념/#_작성_규칙[자바스크립트 문법 작성 규칙] 을 참고하세요.
+활용 빈도와 중요도가 높다고 생각되는 항목으로 본문을 구성하였습니다.
+나머지 항목은 <<#_기타, 기타>> 챕터에서 확인 가능합니다.
+
+== Function
+
+=== 주의사항
+this 키워드는 함수 내에서 현재 실행 중인 함수를 참조하지 않으므로 이름으로 Function 객체를 직접 참조해야 함 (bind() 메소드 활용 이유)
+
+
+
+== Function 프로퍼티
+
+=== Function.length
+[source,js]
+----
+func.length	
+// func의 p 갯수 반환
+----
+[source,js]
+----
+/// 예시
+function func(a, b) => a + b;
+func.length
+//> 2
+----
+
+=== Function.name
+[source,js]
+----
+func.name	
+// func의 이름 반환
+----
+
+== Function 메소드
+
+=== 관련 요소 반환
+
+
+==== Function.prototype.bind()
+[source,js]
+----
+func.bind(p_this, p1, p2, ...p)		
+// p_this와 하나 이상의 p로 새로운 함수를 생성	
+----
+
+
+=== Function.prototype.toString()
+[source,js]
+----
+func.toString()		
+// func의 소스 코드를 str 반환	
+----
+		
+=== 호출
+
+==== Function.prototype.apply()
+[source,js]
+----
+func.apply(p_this, [p1, p2, .. p])		
+//p_this와 하나 이상의 p (arr 형태)로 func 호출	
+// call() 와 유사,
+// call(p_this, p1, p2, ...p) / apply(p_this, arr)	
+----
+
+==== Function.prototype.call()
+[source,js]
+----
+func.call(p_this, p1, p2, ...p)		
+//p_this와 하나 이상의 p로 func 호출
+----
+
+=== 기타
+
+.*눌러서 확인*
+[%collapsible.result]
+====
+* *AggregateError*
++
+[source,js]
+----
+// 다수의 에러가 한 에러로 랩핑되어야 할 때의 오류를 나타냅니다.
+----
++
+[source,js]
+----
+/// 예시
+Promise.any([
+Promise.reject(new Error("some error")),
+]).catch(e => {
+console.log(e instanceof AggregateError); 
+//> true
+console.log(e.message);                   
+//> All Promises rejected"
+console.log(e.name);                      
+// "AggregateError"
+console.log(e.errors);                    
+// [ Error: "some error" ]
+});
+----
+====
+
+== 활용
+
+=== getter
+
+=== setter
+
+
+
+
+
+
+
+
+

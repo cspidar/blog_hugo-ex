@@ -1,0 +1,113 @@
+baseURL: https://cspidar.github.io/blog/
+languageCode: ko
+title: quick start by EEAS
+theme: "PaperMod"
+
+markup:
+  asciidocExt:
+    attributes: {}
+    backend: html5
+    extensions: []
+    failureLevel: fatal
+    noHeaderOrFooter: true
+    preserveTOC: false
+    safeMode: unsafe
+    sectionNumbers: false
+    trace: false
+    verbose: false
+    workingFolderCurrent: false
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+# googleAnalytics: UA-123-45
+
+minify:
+  disableXML: true
+  # minifyOutput: true
+
+menu:
+  main:
+    - name: Archive
+      url: archives
+      weight: 5
+    - name: Search
+      url: search/
+      weight: 10
+    - name: Tags
+      url: tags/
+      weight: 10
+    - name: Categories
+      url: categories/
+      weight: 10
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  #BreadCrumb Navigation
+  ShowBreadCrumbs: true
+
+  #TOC
+  ShowToc: true
+  TocOpen: false
+
+  #Other Posts suggestion
+  ShowPostNavLinks: true
+
+  #   #Search page
+  #   # outputs:
+  #   #   home:
+  #   #     - HTML
+  #   #     - RSS
+  #   #     - JSON # is necessary
+  #   fuseOpts:
+  #     isCaseSensitive: false
+  #     shouldSort: true
+  #     location: 0
+  #     distance: 1000
+  #     threshold: 0.4
+  #     minMatchCharLength: 0
+  #     keys: ["title", "permalink", "summary", "content"]
+
+  # #Search page
+  # outputs:
+  #   home:
+  #     - HTML
+  #     - RSS
+  #     - JSON # is necessary
+
+  profileMode:
+    enabled: false
+    title: PaperMod
+    imageUrl: "#"
+    imageTitle: my image
+    # imageWidth: 120
+    # imageHeight: 120
+    buttons:
+      - name: Archives
+        url: archives
+      - name: Tags
+        url: tags
+
+  homeInfoParams:
+    Title: EEAS
+    Content: Edit Easy and Support 😑
+
+  socialIcons:
+    - name: email
+      url: "mailto:cspidar@gmail.com"
+    - name: github
+      url: "https://github.com/cspidar"
+    - name: RsS
+      url: "index.xml"

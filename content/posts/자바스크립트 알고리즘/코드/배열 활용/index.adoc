@@ -1,0 +1,135 @@
+---
+title: "자바스크립트 알고리즘 - 코드 - 배열 활용"
+date: "2021-06-22"
+categories: 
+  - 자바스크립트 알고리즘
+tags:
+  - 자바스크립트
+  - 알고리즘
+  - 코드
+  - Arr
+  - 배열
+draft: false
+---
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//:doctype: book
+//Hugo 지원 안함
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+
+//:subtitle: 사용자 매뉴얼
+
+// :media: prepress
+//페이지 recto/verso 여백 설정
+
+:icons: font
+// :icons: image
+// :icontype: svg
+
+:xrefstyle: full
+:chapter-refsig:
+:section-refsig:
+:appendix-refsig:
+//상호참조 넘버링, chapter, section, appendix 이름 설정, 커스텀 네이밍 아직 지원 안됨 (예정)
+
+:table-caption!:
+:table-number!:
+//테이블 타이틀 앞 글자 + 숫자 (Table 1.) 없애기
+:experimental:
+//실험 기능 확장
+:example-caption!:
+:example-number!:
+//==== block 앞 글자(example) + 숫자 (1.) 없애기
+:figure-caption!:
+
+:imagesdir:
+//이미지 경로
+
+:source-highlighter: highlightjs
+
+
+
+== arr의 v1과 v2의 value 서로 교체 / 교환
+[source,js]
+----
+[arr[v1], arr[v2]] = [arr[v2], arr[v1]]
+----
+
+
+== 2차 배열 정렬 / 0번 인덱스 같을때 1번 인덱스로 정렬
+[source,js]
+----
+arr.sort((a, b) => {
+  if (a[0] === b[0]) return a[1] - b[1];
+  else return a[0] - b[0];
+});
+----
+
+
+== 2차 배열 회전
+[source,js]
+----
+// arr 회전 - 좌
+function rotateLeft(array) {
+  var result = [];
+  array.forEach((a, i, aa) => {
+    a.forEach((b, j, bb) => {
+      result[bb.length - j - 1] = result[bb.length - j - 1] || [];
+      result[bb.length - j - 1][i] = b;
+    });
+  });
+  return result;
+}
+
+// arr 회전 - 우
+function rotateRight(array) {
+  var result = [];
+  array.forEach((a, i, aa) => {
+    a.forEach((b, j, bb) => {
+      result[j] = result[j] || [];
+      result[j][aa.length - i - 1] = b;
+    });
+  });
+  return result;
+}
+----
+
+
+== 특정 v의 모든 i res에 추가
+[source,js]
+----
+let res = [];
+let idx = arr.indexOf(v);
+while (idx != -1) {
+  res.push(idx);
+  idx = arr.indexOf(v, idx + 1);
+}
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

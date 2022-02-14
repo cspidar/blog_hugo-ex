@@ -1,0 +1,355 @@
+---
+title: "자바스크립트 문법 - A - 작성 규칙, 용어와 개념 (Style, Terms and Concepts)"
+categories: 
+  - 자바스크립트 문법
+tags:
+  - 자바스크립트
+  - 문법
+  - 작성 규칙
+  - 용어
+  - 개념
+  - Style
+  - Term
+  - Concept
+date: "2021-04-03"
+draft: true
+---
+
+:title: title
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+= {title}
+
+* 표기법을 단순화시켜 실제 사용되는 형태로 표현했습니다. 그 과정에서 다소 생략 또는 비약이 있을 수 있습니다.
+* 반환값, 기존 대상의 변경 여부, 항목의 생략 가능 여부 (+생략했을때 기본값) 을 명확히 하는데 중점을 뒀습니다.
+* 학습 과정중, 정리를 위해 작성하여 오류가 있을 수 있습니다. 이에 대해 제 스스로 알게되거나, 관련 내용을 전달해 주시면 업데이트 하도록 하겠습니다. 
+* 오류 수정 외에도 관련 예시와 활용법 추가는 지속적으로 진행할 예정입니다.
+* 본 문서의 첫번째 작성 목적은 제 학습에 대한 정리와 리마인드를 용이하게 하려는 것이나,
+자바스크립트 학습을 시작하시는 분들에게는 파악이 필요한 대상의 요약본이, 숙련자분들에게는 리마인드에 도움이 되는 도구가 되었으면 하는 바램입니다.
+
+
+== 작성 규칙
+
+=== 개요
+
+* **일반 지칭:** 대상을 일반화 하여 언급
+* **특정 값:** 표현 식내에 활용되는 대상 언급
+** 예
++
+[source,js]
+----
+arr.unshift(i) 
+// i를 arr의 첫 item으로 추가 (원본 arr 변경), 새로운 길이를 반환
+----
++
+- i: 표현 식에 사용된 arr 배열의 구성 요소
+- item: 배열 요소의 일반적 표현
+
+* 애매한 상황에선 글자 수가 적은 '특정 값' 형태를 우선하여 작성
+
+* 마지막 (n번째) 대상은 ... 형태 (스프레드 연산자) 로 표현
+** 예
++
+[source,js]
+----
+[item1, item2, ...item]
+----
++
+- item1: 배열의 첫 요소
+- ...item: 배열의 마지막 요소
+
+=== 일반 지칭과 특정 값 표현
+
+[cols="a, a", options="header, autowidth",frame=topbot]
+|===
+|*일반 지칭* |*특정 값*
+|* *배열 (Array)* |* *arr*
+|
+[source,js]
+----
+[item, ...item]
+----
+|
+[source,js]
+----
+[i1, i2, ...i]
+----
+|
+[source,js]
+----
+arr[index] // item	
+----
+|
+[source,js]
+----
+arr[start] // i1
+arr[end] // ...i
+arr[target] // i
+----
+|item: 요소	
+|i1: 첫 요소
+...i: 마지막 요소
+i: 특정 요소
+|index: 인덱스
+|start: 첫 인덱스
+end: 마지막 인덱스
+target: 특정 인덱스
+|인덱스 (Index), 요소 (Item) 쌍	
+|src
+
+|* *객체 (Object)*	|* *obj*
+|
+[source,js]
+----
+{key: value, ...key: ...value}
+----
+|
+[source,js]
+----
+{k1: v1, k2: v2, ...k: ...v}
+----
+|
+[source,js]
+----
+obj.key // value
+----
+|
+[source,js]
+----
+obj.k1 // v1
+----
+|Key: 키
+|k: 키
+|Value: 값
+|v: 값
+|키 (Key), 값 (Value) 쌍
+|src
+	
+|* *문자열 (String)*	|* *str*
+|
+[source,js]
+----
+"string"
+----
+|
+[source,js]
+----
+"s1s2...s"
+----
+|
+[source,js]
+----
+str[index] // "string"
+----
+|
+[source,js]
+----
+str[start] // "s1"
+str[end] // "...s"
+str[target] // "s"
+----
+|"string": 문자열	
+|"s1": 첫 글자
+"...s": 마지막 글자
+"s": 특정 글자
+|\`{template literal}`: 템플릿 리터럴	
+|\`{t}`
+|Regular Expression: 정규 표현식	
+|r/
+|r1/r2/...r/
+|r1/: 첫 표현식
+...r/: 마지막 표현식
+r/: 특정 표현식
+|	
+index: 인덱스	
+|start: 첫 인덱스
+end: 마지막 인덱스
+target: 특정 인덱스
+|인덱스 (Index), 문자 (String) 쌍	
+|src
+
+|* *맵 (Map)*	|* *map*
+|
+[source,js]
+----
+{key1 => value1, key2 => value2, 
+...key => ...value}
+----
+|
+[source,js]
+----
+{k1 => v1, k2 => v2, ...k => ...v}
+----
+|
+[source,js]
+----
+map.get(key) // value	
+----
+|
+[source,js]
+----
+map.get(k) // v
+----
+|Key: 키	
+|k: 키
+|Value: 값	
+|v: 값
+|키 (Key), 값 (Value) 쌍	
+|src
+	
+|* *셋 (Set)*	|* *set*
+|
+[source,js]
+----
+{item1, item2, ...item}
+----
+|
+[source,js]
+----
+{i1, i2, ...i}
+----
+|item: 요소	
+|i1: 첫 요소
+...i: 마지막 요소
+i: 특정 요소
+	
+|* *함수 (Function)*	|* *func*
+|
+[source,js]
+----
+(parameter1, parameter2 ...parameter) 
+=> parameter
+----
+|
+[source,js]
+----
+(p1, p2, ...p) => p
+----
+|parameter: 인자	
+|p1: 첫 인자
+...p: 마지막 인자
+p: 특정 인자
+	
+|* *복합 요소 (Hybrid)*	|* *H*
+|
+[source,js]
+----
+hybrid.method()	
+----
+|
+[source,js]
+----
+H.method()
+[h1, h2, ... h]
+H[arr, obj, str, map, set, func]
+----
+|hybrid: 여러 형태가 가능한 대상	
+|H[가능 대상 목록]
+
+|* *일반 요소* | 
+|0 포함 자연수 |n
+|음의 정수 |-n
+|무한대	|1/0
+|불리언	  |true/false
+|차례로	  |start -> end
+|역순으로	|end -> start
+|생략 가능한 항목의 기본값 0	|옵션 - 기본: 0
+|JS | JavaScript
+|코드 테이블 내 반환값, 결과값 |//>
+|===
+
+
+=== 항목별 설명 순서
+기능 설명 -> (원본 변경/유지 여부) -> 반환값
+
+=== 기존 대상의 변경 여부 표시
+* 기존 대상 변경: 변경된 대상 반환 (원본 변경) - 기능 설명에 표시
+* 기존 대상 유지: 새로운 대상 반환 (원본 유지) - 기능 설명에 미표시
+
+
+== 용어와 개념
+
+=== Index와 False
+JS에서 0 은 false로 평가되기 때문에, 요소 검색 후 인덱스를 반환하는 아래와 같은 메소드를 사용할때 주의해야 합니다.
+
+* link:../b-배열-메소드-array-methods/#_array_prototype_findindex[arr.findIndexOf()]
+* link:../b-배열-메소드-array-methods/#_array_prototype_indexof[arr.indexOf()]
+* link:../b-배열-메소드-array-methods/#_array_prototype_lastindexof[arr.lastIndexOf()]
+
+true/false 반환값이 필요한 경우엔 link:../b-배열-메소드-array-methods/#_array_prototype_includes[arr.includes()] 메소드를 사용하는 것이 나은 선택일 수 있습니다.
+
+=== 콜백 함수
+다른 함수의 인자로 전달되는 함수 (함수안에 인자로 호출된 함수) 를 말합니다. 본 문서에서는 콜백 함수를 그 역할에 따라 연산 함수 (p => p + 1, 대상을 인자로 받아 계산 또는 효과를 적용하여 결과를 반환) 와 판별 함수 (p => p < 10, 대상의 특정 조건 만족 여부를 true/false로 반환) 로 구분하여 작성했습니다.
+
+=== 유사 배열 (Array-like)
+배열의 형태 [i1, i2, ...i] 를 하고 있지만, 특정 목적으로 만들어져 배열 메소드를 사용할수 없습니다. (length 프로퍼티는 존재) 함수에서 배열 형태를 반환하고 싶거나 원래의 배열 객체가 갖고 있는 메소드를 제한하거나 또는 추가하고 싶을때 사용합니다.
+출처: https://sub0709.tistory.com/13
+
+=== 얕게 복사
+
+=== 반환 (return)
+
+=== 확장
+
+=== 동결 (freeze)
+
+=== 밀봉 (sealed)
+
+=== thisArg: 호출하는데 제공될 this 의 값
+
+=== 열거 가능 (enumerable)
+
+=== 유사 배열 (array-like)
+
+=== 이터러블 (iterable)
+
+=== 이터레이터 (iterator)
+
+=== 원시값 
+string, number, bigint (큰 정수), boolean, undefined, symbol
+객체가 아니면서 메소드도 가지지 않는 데이터 
+
+=== 메소드: 대상에 할당된 함수
+[source,js]
+----
+const user = {} // [], p => p ...
+user.sayHi = () => console.log('Hi'); // user 객체에 sayHi() 함수 할당
+user.sayHi(); // Hi
+----
+
+=== 메소드 체인
+[source,js]
+----
+user.sayHi().sayBye().goToBed();
+----
+undefined 를 반환하는 메소드는 체인 중간에 올수 없음
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

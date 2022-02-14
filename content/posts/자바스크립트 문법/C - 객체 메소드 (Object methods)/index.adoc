@@ -1,0 +1,343 @@
+---
+title: "자바스크립트 문법 - C - 객체 주요 메소드 (Object methods essential)"
+
+date: "2021-04-05"
+categories: 
+  - 자바스크립트 문법
+tags:
+  - 자바스크립트
+  - 문법
+  - 용어
+  - 개념
+  - 메소드
+  - 객체
+  - Object
+draft: false
+---
+
+:title: 자바스크립트 문법 - C - 객체 주요 메소드 (Object methods essentials)
+
+//넘버링 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:sectnums:
+
+//자동 줄바꿈 각 문서 시작에 써야 개별 문서 프리뷰에서 적용
+:hardbreaks:
+
+//챕터 이름 Chapter 대신 사용할 이름 설정 (없음 으로 변경)
+:chapter-label:
+
+//목차 설정
+:toc: left
+:toclevels: 5
+:toc-title: 목차
+
+= {title}
+
+본 문서의 작성 규칙은 link:../a-작성-규칙_용어와-개념/#_작성_규칙[자바스크립트 문법 작성 규칙] 을 참고하세요.
+활용 빈도와 중요도가 높다고 생각되는 항목으로 본문을 구성하였습니다.
+나머지 항목은 <<#_기타, 기타>>  챕터에서 확인 가능합니다.
+
+
+
+== 객체
+
+=== 주의사항
+key를 숫자로 입력해도 string으로 자동 변환됩니다.
+
+
+
+== 객체 메소드
+
+=== 직접 수정
+원본 객체를 직접 수정하여 변경합니다.
+
+==== Object.assign()
+[source,js]
+----
+Object.assign(obj, src1, src2, ...src) 
+// src 를 obj 에 복사한 뒤 obj 반환 (원본 obj 변경), 동일한 속성은 더 뒤의 파라미터 객체에 의해 덮어쓰여짐.
+----
+
+
+=== 변환
+원본 객체는 유지한채 내부 요소를 변환하여 반환합니다.
+
+==== Object.keys() 
+[source,js]
+----
+Object.keys(obj) 
+// obj내 전체 key를 arr로 반환
+// getOwnPropertyNames() 와 차이점: enumerable = true 만
+----
+
+==== Object.getOwnPropertyNames()
+[source,js]
+----
+Object.getOwnPropertyNames(obj) 
+// obj내 전체 key를 arr로 반환
+// enumerable = true/false 둘다 가능
+----
+
+==== Object.values()
+[source,js]
+----
+Object.values(obj) 
+// obj의 전체 value를 arr로 반환
+----
+
+==== Object.prototype.toString()
+[source,js]
+----
+obj.key.toString() 
+// arr의 모든 item을 쉼표 구분자로 합쳐 새로운 str로 반환
+----
+
+==== Object.entries()
+[source,js]
+----
+Object.entries(obj) 
+//obj의 key와 value를 [key, value] 형태의 arr로 반환.
+----
+.*눌러서 예시 확인*
+[%collapsible.result]
+=====
+[source,js]
+----
+Object.entries({a:1, b:2, c:3}) 
+//> [["a", 1], ["b", 2], ["c", 3]]
+----
+=====
+
+==== Object.fromEntries()
+[source,js]
+----
+Object.fromEntries(arr) 
+// [key, value] 쌍의 arr을 obj로 반환
+----
+.*눌러서 예시 확인*
+[%collapsible.result]
+=====
+[source,js]
+----
+Object.fromEntries([["a", 1], ["b", 2], ["c", 3]]) 
+//> {a:1, b:2, c:3}
+----
+=====
+
+
+
+=== 검색 및 확인
+
+==== Object.prototype.hasOwnProperty()
+[source,js]
+----
+obj.hasOwnProperty('key') 
+// obj의 key 존재 여부를 true/false 로 반환
+----
+
+==== Object.is()
+[source,js]
+----
+Object.is(H1, H2); 
+// H1과 H2의 같음 여부를 true/false 로 반환
+----
+
+
+
+
+=== 기타
+
+==== Object.prototype.toLocaleString() 
+[source,js]
+----
+H.toLocaleString() 
+// 숫자 및 숫자가 포함된 대상을 지역에 따른 표현을 적용한 문자열로 반환 (원본 H 유지)
+----
+
+==== Object.prototype.valueOf()
+[source,js]
+----
+obj.valueOf() 
+// obj의 원시값 반환
+----
+
+==== Object.create()
+[source,js]
+----
+let obj = Object.create(prototype) 
+// prototype을 갖는 obj 생성
+----
+
+==== Object.defineProperties()
+[source,js]
+----
+Object.defineProperties(obj, {
+  key1: {
+    value: undefined,
+    writable: false,
+    configurable: false,
+    enumerable: false,
+    get: undefined,
+    set: undefined
+  },
+  key2: {
+    value: 'value2',
+  },
+  key3: {}
+});
+// obj에 1개 이상의 src와 그 속성 (옵션 - 기본: key1의 작성값) 을 정의
+----
+
+==== Object.defineProperty()
+[source,js]
+----
+Object.defineProperty(obj, 'key', {
+  value: undefined,
+  writable: false,
+  configurable: false,
+  enumerable: false,
+  get: undefined,
+  set: undefined
+})
+// obj에 단일 src와 그 속성 (옵션 - 기본: key1의 작성값) 을 정의
+----
+
+==== Object.getOwnPropertyDescriptor() 
+[source,js]
+----
+Object.getOwnPropertyDescriptor(obj, prop) 
+// obj내 prop의 설명을 반환, 없으면 undefined 반환
+----
+
+==== Object.getOwnPropertyDescriptors()
+[source,js]
+----
+Object.getOwnPropertyDescriptors(obj) 
+// obj내 전체 prop의 설명을 반환, 없으면 undefined 반환
+----
+
+
+
+=== 기타
+
+.*눌러서 확인*
+[%collapsible.result]
+====
+.Object.freeze()
+[source,js]
+----
+Object.freeze(obj) 
+// obj를 변경 불가 상태로 만듦 (원본 obj 변경), 변경된 obj 반환
+----
+
+.Object.preventExtensions()
+[source,js]
+----
+Object.preventExtensions(obj) 
+// obj 를 확장 불가로 만듦 (원본 obj 변경), 변경된 obj 반환
+----
+
+.Object.seal()
+[source,js]
+----
+Object.seal(obj) 
+// obj를 밀봉(봉인) 상태로 만듦 (원본 obj 변경), 변경된 obj 반환
+----
+
+.Object.setPrototypeOf()
+[source,js]
+----
+Object.setPrototypeOf(obj, prototype) 
+// obj를 다른 prototype으로 변경 (원본 obj 변경), 변경된 obj 반환
+----
+
+.Object.getOwnPropertySymbols()
+[source,js]
+----
+Object.getOwnPropertySymbols(obj) 
+// obj내 전체 심볼을 배열로 반환
+----
+
+.Object.prototype.propertyIsEnumerable()
+[source,js]
+----
+obj.propertyIsEnumerable('prop') 
+// obj내 prop의 열거 가능 여부를 true/false 로 반환
+----
+
+.Object.isExtensible()
+[source,js]
+----
+Object.isExtensible(obj) 
+// obj의 확장 가능 여부를 true/false 로 반환
+----
+
+.Object.isFrozen()
+[source,js]
+----
+Object.isFrozen(obj) 
+// obj의 동결 여부를 true/false 로 반환
+----
+
+.Object.isSealed()
+[source,js]
+----
+Object.isSealed(obj) 
+// obj의 봉인 여부를 true/false 로 반환
+----
+
+.Object.getPrototypeOf()
+[source,js]
+----
+Object.getPrototypeOf(obj) 
+// obj의 프로토타입을 반환
+----
+
+.Object.prototype.isPrototypeOf()
+[source,js]
+----
+Object.isPrototypeOf(obj) 
+// 프로토타입 체인에 obj가 존재하는지 여부를 true/false 로 반환
+----
+.눌러서 활용법 확인
+[%collapsible.result]
+=====
+[source,js]
+----
+/// instanceof 연산자와 함께 특정 프로토타입으로부터 상속된 객체만 작동 (특정 메소드나 속성이 객체에 있다는걸 보장)
+if (Fi.prototype.isPrototypeOf(obj)) {
+  // do something safe
+}
+----
+=====
+====
+
+
+
+
+== 활용
+
+=== 객체 추가
+[source,js]
+----
+// Object.assign(obj, src1, src2, ...src) - 원본 obj 변경
+const src = { a: 1 };
+const add = Object.assign({}, src);
+console.log(add); 
+//> { a: 1 }
+----
+[source,js]
+----
+// ... (펼침 연산자) - 원본 obj 유지
+{...obj, k1: v1, k2: v2}
+----
+[source,js]
+----
+// ... (펼침 연산자) 로 깊은 복사
+{...obj, k1: {...obj.k1}}
+----
+
+
+
+
+
