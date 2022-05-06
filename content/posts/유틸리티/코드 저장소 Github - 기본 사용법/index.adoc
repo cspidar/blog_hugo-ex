@@ -79,47 +79,41 @@ git은 브랜치, 모듈, 로그 등 다양한 기능을 제공하여 개발환�
 [%collapsible.result]
 ====
 
-===== Visual studio code 의 장점
- 
-.눌러서 확인
-[%collapsible.result]
-=====
-* 오픈소스
-* 유저수가 많아 다양한 확장 플러그인 사용 가능
-* 프로그램 내에서 터미널 사용이 편리
-* 최적화가 잘되어 있어 실행&반응속도 빠름
-* 타 프로그램 (예: Atom) 에 비해 한글 입력이 안정적
 =====
 
-===== 사이트 주소
+* *Visual studio code 의 장점*
+** 오픈소스
+** 유저수가 많아 다양한 확장 플러그인 사용 가능
+** 프로그램 내에서 터미널 사용이 편리
+** 최적화가 잘되어 있어 실행 & 반응속도 빠름
+** 타 프로그램 (예: Atom) 에 비해 한글 입력이 안정적
 
-https://code.visualstudio.com/
-
-
-===== 설치 방법
-
+* *사이트 주소:* https://code.visualstudio.com/
++
+* *설치 방법*
++
 menu:홈페이지[Download for Windows > 실행]
-
++
 image::images\index-40834.png[]
-
++
 설치 옵션중 아래 표시된 두 옵션 ("Code로 열기"...) 은 탐색기에서 폴더 상태로 바로 프로젝트를 열기 위해 체크한 상태로 설치하는 것을 추천합니다.
-
++
 image::images\index-b48e9.png[]
-
-* 프로젝트 폴더 열기
++
+** 프로젝트 폴더 열기
 프로젝트 폴더채로 열면 좌측에 프로젝트 트리구조가 바로 나타나고 터미널이 프로젝트 root 폴더 상태로 열려 편리합니다.
 +
 menu:프로젝트 폴더 우클릭[Code로 열기]
 +
 image::images\index-d342b.png[]
 +
-* 터미널 열기/닫기 단축키
+** 터미널 열기/닫기 단축키
 +
 kbd:[Crtl]+kbd:[`]
 +
 image::images\index-ee728.png[]
+=====
 ====
-
 
 
 ==== git 설치
